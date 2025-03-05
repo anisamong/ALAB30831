@@ -15,18 +15,42 @@ console.log(i)
     }
 
 // Part 2
+// Declare an arbitrary number, n.
+// Create a loop that searches for the next prime number, 
+// starting at n and incrementing from there.
+// As soon as you find the prime number, log 
+// that number and exit the loop.
 
-for (let n = 5; n < 100; n ++) {
-  if ( n > 1 && n % 2 !== 0 && n % 3 !== 0 && n % n == 0) {
-    console.log(n)  
-    break;
-  } 
-} 
+let n = 3; 
 
+while (true) {
+    n++; 
+    let primeNum = true;
 
-part 3
+    for (let i = 2; i < n; i++) {
+        if (n % i === 0) {
+            primeNum = false;
+            break; 
+        }
+    }
 
-const csvVariable = "ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26"
-const rows = csvVariable.split('\n');
-const cells = csvVariable.split(',');
+    if (primeNum) {
+        console.log(n);
+        break; 
+    }
+}
+
+// // part 3
+
+const csvVariable = "ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26";
+let rows = [];
+let currentIndex = 0;
+let nextIndex;
+
+while ((nextIndex = csvVariable.indexOf('\n', currentIndex)) !== -1) {
+  rows.push(csvVariable.slice(currentIndex, nextIndex));
+  currentIndex = nextIndex + 1;
+}
+rows.push(csvVariable.slice(currentIndex));
+
 console.log(rows);
