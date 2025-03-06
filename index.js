@@ -43,14 +43,8 @@ while (true) {
 // // part 3
 
 const csvVariable = "ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26";
-let rows = [];
-let currentIndex = 0;
-let nextIndex;
-
-while ((nextIndex = csvVariable.indexOf('\n', currentIndex)) !== -1) {
-  rows.push(csvVariable.slice(currentIndex, nextIndex));
-  currentIndex = nextIndex + 1;
-}
-rows.push(csvVariable.slice(currentIndex));
+const rows = csvVariable.split("\n");
+for(let i = 0; i < csvVariable.length; i ++);
+csvVariable.split(",");
 
 console.log(rows);
